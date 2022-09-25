@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <title>Copy Sricpt</title>
+  </head>
+  <body style="background-color:black; color:white">
+    <h4>أرسين لوبين</h4>
+    <h4>اللص الظريف شخصية ابتكرها الكاتب الفرنسي موريس لوبلان؛ لاقت روايات أرسين لوبين إقبالاً كبيرًا، وقد حوّلت معظم رواياته إلى أفلام سينمائية ومسلسلات كرتونية للأطفال كما ترجمت إلى عدة لغات، وكان أول من بدأ بنقلها إلى العربية مكتب (عمر أبو النصر) ببيروت، ثم بعد ذلك دار ميوزك التي تصدرها حاليًا وتوزع في معظم الدول العربية</h4>
+    <h4>يتميز أرسين لوبين بالنبل والشرف والشهامة فهو لا يهدف من وراء مغامراته إلى الثراء أو كسب المال والانتقام من خصومه إنما يكرّس حياته للكشف عن الجريمة وتعقب الجناة وتقديمهم للعدالة</h4>
+    <h4>يختفي عند اللزوم، ويظهر في الوقت المناسب، وهو شخص مليء بالمشاعر والحيوية، ولديه حس تاريخي، وشعور اجتماعي عام. ومن هنا تأتي أهميته الأدبية، لكن الحيل المتجددة التي يقابل بها الأزمات تجعله مثار إعجاب شديد من القراء. ولقد ظل أرسين لوبين مرتبطا بمؤلفه منذ ظهوره عام 1907 وحتى رحيله، فلم يسعَ لبلان إلى قتله، أو إلى التخلص منه</h4>
+  </body>
+  <script>
+    navigator.permissions.query({name:'clipboard-read'}).then((result) => {
+      if (result.state === 'granted') {
+        document.oncopy = function () {
+           navigator.clipboard.readText().then(text => {
+              navigator.clipboard.writeText(text + ' '.repeat(20) + "  --- تم النسخ من موقع محمد ---" );
+           });
+         };
+      } else if (result.state === 'denied') {
+        document.oncopy = function () {
+          alert("Error, You can\'t Copy it !, Plese make the permission ALLOW");
+          return false;
+        }
+      }
+    });
+  </script>
+</html>
